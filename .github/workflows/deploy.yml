@@ -30,12 +30,12 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: '-rlgoDzvc --delete'
           SOURCE: './'
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
+          REMOTE_HOST: ${{ vars.REMOTE_HOST }}
+          REMOTE_USER: ${{ vars.REMOTE_USER }}
+          TARGET: ${{ vars.REMOTE_TARGET }}
           EXCLUDE: '/.git/,/.github/,/.vscode/'
           SCRIPT_AFTER: |
-            cd ${{ secrets.REMOTE_TARGET }}
+            cd ${{ vars.REMOTE_TARGET }}
             pnpm migrate
             pm2 reload pm2.config.cjs --update-env
             echo $RSYNC_STDOUT
