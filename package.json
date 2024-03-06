@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "generate": "pnpm drizzle-kit generate:mysql",
+    "migrate": "pnpm tsx src/db/migrate.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.8.2",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.29.4",
+    "drizzle-zod": "^0.5.1",
+    "hono": "^4.0.10",
+    "mysql2": "^3.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "drizzle-kit": "^0.20.14",
+    "tsx": "^3.14.0"
+  }
+}
