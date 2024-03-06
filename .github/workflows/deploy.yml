@@ -37,5 +37,5 @@ jobs:
           SCRIPT_AFTER: |
             cd ${{ secrets.REMOTE_TARGET }}
             pnpm migrate
-            pm2 reload ecosystem.config.cjs --update-env
+            pm2 reload pm2.config.cjs --update-env
             echo $RSYNC_STDOUT
