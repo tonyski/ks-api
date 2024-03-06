@@ -15,4 +15,4 @@ api.notFound((c) => c.json({ message: 'Not Found', ok: false }, 404))
 
 api.route('/test', testRoute)
 
-serve({ fetch: api.fetch, port: 3000 })
+serve({ fetch: api.fetch, port: 1234 })
