@@ -5,19 +5,15 @@ import { eq } from 'drizzle-orm'
 
 const testRoute = new Hono()
 
-const findFirst = async () => {
-  const result = await db.select().from(test).limit(1)
-  return result[0]
-}
-
 testRoute.get('/', async (c) => {
-  return c.json(await findFirst())
+  const result = await db.query.test.findFirst()
+  return c.json(result)
 })
 
 testRoute.post('/', async (c) => {
   const body = await c.req.json()
   await db.update(test).set(body).where(eq(test.id, 1))
-  return await c.json(await findFirst())
+  return c.json(await db.query.test.findFirst())
 })
 
 export default testRoute
